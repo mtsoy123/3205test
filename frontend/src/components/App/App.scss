@@ -1,0 +1,26 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-background;
+
+    &__form {
+        padding: 48px;
+        box-shadow: $shadow-form;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        border-radius: $radius-l;
+        background-color: $color-light;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}

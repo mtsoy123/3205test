@@ -1,0 +1,25 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__label {
+        @include text("Roboto", normal, 500, 14px, 16px, $color-dark);
+    }
+
+    &__input {
+        width: 300px;
+        border: $border-input-default;
+        border-radius: 8px;
+        padding: 12px;
+        @include text("Roboto", normal, 400, 12px, 14px, $color-dark);
+
+        &:hover {
+            border: $border-input-hover;
+        }
+
+        &:active {
+            border: $border-input-active;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.button {
+    background: $color-primary;
+    box-shadow: $shadow-button;
+    border-radius: $radius-m;
+    width: 100%;
+    border: none;
+    padding: 14px;
+    @include text("Roboto", normal, 700, 17px, 20px, $color-light);
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+    }
+}
