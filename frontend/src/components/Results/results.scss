@@ -1,0 +1,30 @@
+.results {
+    padding: 32px;
+    box-shadow: $shadow-form;
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    gap: 16px;
+    border-radius: $radius-l;
+    background-color: $color-light;
+    width: 870px;
+    box-sizing: border-box;
+
+    &__header {
+        margin: 0;
+        padding-bottom: 24px;
+        @include text("Roboto", normal, 700, 14px, 16px, $color-dark);
+    }
+
+    &__wrapper {
+        margin: 0;
+        padding: 0;
+        width: 326px;
+    }
+
+    &__result {
+        list-style: none;
+        margin: 0;
+        padding-bottom: 16px;
+    }
+}

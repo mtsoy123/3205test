@@ -2,17 +2,20 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    padding-top: 150px;
+    flex-direction: column;
     align-items: center;
     background-color: $color-background;
+    gap: 32px;
 
     &__form {
-        padding: 48px;
+        padding: 32px;
+        width: 870px;
+        box-sizing: border-box;
         box-shadow: $shadow-form;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: end;
         gap: 30px;
         border-radius: $radius-l;
         background-color: $color-light;
@@ -20,7 +23,7 @@
 
     &__wrapper {
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         gap: 16px;
     }
 }

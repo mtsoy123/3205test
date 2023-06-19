@@ -2,10 +2,11 @@ import React from "react";
 // import "./App.scss";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import Results from "../Results/Results";
 
 function App() {
     return (
-        <div className="app">
+        <main className="app">
             <form className="app__form">
                 <div className="app__wrapper">
                     <Input label="Email" />
@@ -13,7 +14,9 @@ function App() {
                 </div>
                 <Button label="Submit" />
             </form>
-        </div>
+
+            <Results></Results>
+        </main>
     );
 }
 
