@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+const NotFoundErr = require("../utils/errors/NotFoundErr");
 const data: User[] = require("../db.json");
 
 type User = {
@@ -6,29 +7,26 @@ type User = {
     number?: number;
 };
 
-let currentTimeout: NodeJS.Timeout | null = null;
+function handleRequest(req: Request, res: Response, next: NextFunction) {
+    const { email, number } = req.body;
+    const tempArr: User[] = [];
 
-function handleRequest(req: Request, res: Response) {
-    if (currentTimeout) {
-        clearTimeout(currentTimeout);
-    }
+    data.forEach((item) => {
+        if (
+            item.email === email &&
+            (number === (undefined || null || "") || item.number === number)
+        ) {
+            tempArr.push(item);
+        }
+    });
 
-    currentTimeout = setTimeout(() => {
-        const { email, number } = req.body;
-        const tempArr: User[] = [];
-
-        data.forEach((item) => {
-            if (
-                item.email === email &&
-                (number === undefined || item.number === number)
-            ) {
-                tempArr.push(item);
-            }
-        });
-
+    if (tempArr.length === 0) {
+        next(new NotFoundErr("Not found"));
+    } else {
         res.send(tempArr);
-    }, 5000);
+    }
 }
+
 module.exports.getUser = (req: Request, res: Response, next: NextFunction) => {
-    handleRequest(req, res);
+    handleRequest(req, res, next);
 };

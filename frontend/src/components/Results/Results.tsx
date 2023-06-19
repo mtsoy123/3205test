@@ -1,20 +1,45 @@
 import React from "react";
+import Error from "../Error/Error";
 
-type Props = {};
+type User = {
+    email: string;
+    number: string;
+};
 
-export default function ({}: Props) {
+type Props = {
+    data: User[];
+    isFound: boolean;
+    error: number;
+};
+
+export default function ({ data, isFound, error }: Props) {
+    const renderData = (data: User[]) => {
+        return data.map((item) => {
+            return (
+                <React.Fragment key={item.number}>
+                    <li key={item.number + 1} className="results__result">
+                        {item.email}
+                    </li>
+                    <li key={item.number + 2} className="results__result">
+                        {item.number}
+                    </li>
+                </React.Fragment>
+            );
+        });
+    };
     return (
-        <section className="results">
-            <ul className="results__wrapper">
-                <h2 className="results__header">Email</h2>
-                <li className="results__result">someemail</li>
-                <li className="results__result">someemail</li>
-            </ul>
-            <ul className="results__wrapper">
-                <h2 className="results__header">Number</h2>
-                <li className="results__result">somenumber</li>
-                <li className="results__result">somenumber</li>
-            </ul>
-        </section>
+        <>
+            {isFound ? (
+                <section className="results">
+                    <ul className="results__wrapper">
+                        <h2 className="results__header">Email</h2>
+                        <h2 className="results__header">Number</h2>
+                        {renderData(data)}
+                    </ul>
+                </section>
+            ) : (
+                <Error error={error}></Error>
+            )}
+        </>
     );
 }

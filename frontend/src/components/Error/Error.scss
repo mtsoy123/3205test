@@ -1,0 +1,17 @@
+.error {
+    padding: 32px;
+    box-shadow: $shadow-form;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border-radius: $radius-l;
+    background-color: $color-light;
+    width: 870px;
+    box-sizing: border-box;
+
+    &__header {
+        margin: 0;
+        @include text("Roboto", normal, 700, 14px, 16px, $color-error);
+        padding: 0;
+    }
+}

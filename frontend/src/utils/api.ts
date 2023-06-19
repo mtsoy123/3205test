@@ -7,6 +7,11 @@ type apiProperties = {
     headers: HeadersInit;
 };
 
+type query = {
+    email: string;
+    number?: string;
+};
+
 class Api {
     private readonly _baseUrl: string;
     private readonly _headers: HeadersInit;
@@ -25,16 +30,16 @@ class Api {
         );
     };
 
-    submit(query: string) {
+    submit(query: query) {
         return this._checkResponse(this._baseUrl, {
             headers: this._headers,
             method: "POST",
-            body: JSON.stringify({ query: query }),
+            body: JSON.stringify(query),
         });
     }
 }
 
 export const api = new Api({
-    baseUrl: "localhost:3000",
+    baseUrl: "http://localhost:4000/",
     headers: headers,
 });
